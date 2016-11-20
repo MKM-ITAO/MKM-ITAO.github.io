@@ -1,0 +1,74 @@
+ /* see osa on tabide jaoks*/
+ /* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #F3F9FE;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+	/*background-image: url('pildid/paper.png');*/
+    padding: 30px 30px;
+    border: 1px solid #ccc;
+    border-top: none;
+	background:#FCFEFF;
+}
+#content {
+	padding: 0px 0px;
+}
+/*font */
+* {
+	font-size:17px;
+	font-family: 'Raleway', sans-serif;
+	margin:0;
+}
+h1 {
+    color: #42A5FB;
+    text-align: center;
+	margin-bottom:0px;
+	font-size:18px;
+	font-weight: bold;
+	padding-top:10px;
+}
+h2 {
+	margin-top:0px;
+	font-size:17px;
+	padding-top:10px;
+}
+p {
+	margin-bottom:0px;
+	padding-top:5px;
+	padding-bottom:5px;
+
+}
+#footer {
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:10px;
+}
