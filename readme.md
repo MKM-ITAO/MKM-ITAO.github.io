@@ -5,9 +5,9 @@ Määruse "[Teenuste korraldamise ja teabehalduse alused](https://eelnoud.valits
 __Lähteülesanne__
 
 	- Interaktiivne kodulehekülg, kus on teemade lõikes võimalik jagada teavet määruse olulisemate aspektide kohta. Esialgsed rubriigid:
-		- Teenuse mõiste
-		- teenuse kataloog
-		- Teenuse mõõtmine
+	  - Teenuse mõiste
+	  - teenuse kataloog
+	  - Teenuse mõõtmine
 	- Kodulehele tuleb luua mõned videod (max 10 min pikkused), kus olulisemaid aspekte on arusaadavalt selgitatud
 	- Kodulehe ksutajateks on avliku sektori asutuste töötajad, kes peavad määruse rakendamisega tegelema hakkama: 
 		- teenuste omanikud
