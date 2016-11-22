@@ -1,6 +1,6 @@
 ##TKTA juhendid
 
-Määruse "[Teenuste korraldamise ja teabehalduse alused](https://eelnoud.valitsus.ee/main/mount/docList/dcaf70ef-c6aa-4cc2-9140-6094aee0970c)" juhendmaterjalide jaoks kodulehe loomine. Tellija: Majandus- ja Kommunikatsiooniministeeriumi infoühiskonna teenuste arendamise osakond.
+Määruse "[Teenuste korraldamise ja teabehalduse alused](https://eelnoud.valitsus.ee/main/mount/docList/dcaf70ef-c6aa-4cc2-9140-6094aee0970c)" juhendmaterjalide jaoks kodulehe loomine. Tellija: Majandus- ja Kommunikatsiooniministeeriumi infoühiskonna teenuste arendamise osakond. <a href="example.com" target="_blank">New Tab</a>
 
 __Lähteülesanne__
 
