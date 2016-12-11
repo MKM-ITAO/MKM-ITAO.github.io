@@ -2,11 +2,11 @@
  /* Style the list */
 ul.tab {
     list-style-type: none;
-    margin:0;
+    margin: 0;
     padding: 0;
-	overflow: hidden;
-    border: 2px solid #a9b3b3;
-    background-color: #8f9f9d;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #F3F9FE;
 }
 
 /* Float the list items side by side */
@@ -15,7 +15,7 @@ ul.tab li {float: left;}
 /* Style the links inside the list items */
 ul.tab li a {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -24,43 +24,36 @@ ul.tab li a {
 }
 
 /* Change background color of links on hover */
-ul.tab li a:hover {background-color: #778b92;}
+ul.tab li a:hover {background-color: #ddd;}
 
 /* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #576873;}
+ul.tab li a:focus, .active {background-color: #ccc;}
 
 /* Style the tab content */
 .tabcontent {
     display: none;
 	/*background-image: url('pildid/paper.png');*/
     padding: 30px 30px;
+    border: 1px solid #ccc;
     border-top: none;
-	background:white;
+	background:#FCFEFF;
 }
-#container{
-	width:850px;
-	margin-left:auto;
-	margin-right:auto;
-}
-
 #content {
 	padding: 0px 0px;
-	text-align: left-side;
 }
 /*font */
 * {
 	font-size:17px;
-	font-family: 'Roboto+Condensed';
+	font-family: 'Raleway', sans-serif;
 	margin:0;
 }
 h1 {
-	background-color:white;
-    color: #576873;
+    color: #42A5FB;
     text-align: center;
 	margin-bottom:0px;
-	font-size:22px;
+	font-size:18px;
 	font-weight: bold;
-	padding-top:20px;
+	padding-top:10px;
 }
 h2 {
 	margin-top:0px;
@@ -68,18 +61,14 @@ h2 {
 	padding-top:10px;
 }
 p {
-	margin-bottom:10px;
+	margin-bottom:0px;
 	padding-top:5px;
 	padding-bottom:5px;
 
-}
-#body {
-	background-color: #e4e6df;
 }
 #footer {
 	padding-left:5px;
 	padding-top:5px;
 	padding-bottom:5px;
 	font-size:10px;
-	text-align:center;
 }
