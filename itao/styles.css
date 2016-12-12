@@ -67,11 +67,13 @@ h2 {
 	font-size:17px;
 	padding-top:10px;
 }
+h3 {
+	padding-bottom:5px;
+}
 p {
 	margin-bottom:10px;
 	padding-top:5px;
 	padding-bottom:5px;
-
 }
 #body {
 	background-color: #e4e6df;
@@ -83,3 +85,8 @@ p {
 	font-size:10px;
 	text-align:center;
 }
+iframe {
+	margin-bottom:20px;
+}
+
+
