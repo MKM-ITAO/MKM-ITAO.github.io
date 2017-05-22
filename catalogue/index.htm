@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
+
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .bgimg-1 {
+            background-image: url("images/city_view_night.jpg");
+            min-height: 100%;
+
+        }
+
+        .bgimg-2 {
+            background-image: url("images/stats.PNG");
+            min-height: 400px;
+            -webkit-filter: grayscale(50%); /* Safari */
+            filter: grayscale(50%);
+        }
+
+        .bgimg-3 {
+            background-image: url("images/catalogue.PNG");
+            min-height: 400px;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 20px "Lato", sans-serif;
+            color: #111;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1, .bgimg-2, .bgimg-3 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+    <script type="text/javascript">// Promises
+    var _eid_promises = {};
+    // Turn the incoming message from extension
+    // into pending Promise resolving
+    window.addEventListener("message", function (event) {
+        if (event.source !== window) return;
+        if (event.data.src && (event.data.src === "background.js")) {
+            console.log("Page received: ");
+            console.log(event.data);
+            // Get the promise
+            if (event.data.nonce) {
+                var p = _eid_promises[event.data.nonce];
+                // resolve
+                if (event.data.result === "ok") {
+                    if (event.data.signature !== undefined) {
+                        p.resolve({hex: event.data.signature});
+                    } else if (event.data.version !== undefined) {
+                        p.resolve(event.data.extension + "/" + event.data.version);
+                    } else if (event.data.cert !== undefined) {
+                        p.resolve({hex: event.data.cert});
+                    } else {
+                        console.log("No idea how to handle message");
+                        console.log(event.data);
+                    }
+                } else {
+                    // reject
+                    p.reject(new Error(event.data.result));
+                }
+                delete _eid_promises[event.data.nonce];
+            } else {
+                console.log("No nonce in event msg");
+            }
+        }
+    }, false);
+
+
+    function TokenSigning() {
+        function nonce() {
+            var val = "";
+            var hex = "abcdefghijklmnopqrstuvwxyz0123456789";
+            for (var i = 0; i < 16; i++) val += hex.charAt(Math.floor(Math.random() * hex.length));
+            return val;
+        }
+
+        function messagePromise(msg) {
+            return new Promise(function (resolve, reject) {
+                // amend with necessary metadata
+                msg["nonce"] = nonce();
+                msg["src"] = "page.js";
+                // send message
+                window.postMessage(msg, "*");
+                // and store promise callbacks
+                _eid_promises[msg.nonce] = {
+                    resolve: resolve,
+                    reject: reject
+                };
+            });
+        }
+
+        this.getCertificate = function (options) {
+            var msg = {type: "CERT", lang: options.lang};
+            console.log("getCertificate()");
+            return messagePromise(msg);
+        };
+        this.sign = function (cert, hash, options) {
+            var msg = {type: "SIGN", cert: cert.hex, hash: hash.hex, hashtype: hash.type, lang: options.lang};
+            console.log("sign()");
+            return messagePromise(msg);
+        };
+        this.getVersion = function () {
+            console.log("getVersion()");
+            return messagePromise({
+                type: "VERSION"
+            });
+        };
+    }</script>
+    <style id="style-1-cropbar-clipper">
+    .en-markup-crop-options {
+        top: 18px !important;
+        left: 50% !important;
+        margin-left: -100px !important;
+        width: 200px !important;
+        border: 2px rgba(255, 255, 255, .38) solid !important;
+        border-radius: 4px !important;
+    }
+
+    .en-markup-crop-options div div:first-of-type {
+        margin-left: 0px !important;
+    }
+    </style>
+    <link rel="stylesheet" type="text/css"
+          href="chrome-extension://pkehgijcmpdhfbdbbnkijodmdjhbjlgp/skin/socialwidgets.css">
+</head>
+<body>
+
+<div class="bgimg-1">
+    <div class="caption">
+        <span class="border">Estonian Public Service Catalogue</span>
+    </div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h3 style="text-align:center;">Catalogue</h3>
+    <p><a href="https://www.mkm.ee/en/service-search" target="_blank">Estonian public service catalogue</a> is a simple web-based
+        tool to generate overview of public services. Public service is direct
+        contact between some public sector institution and it's clients: citizen, business or NGO. Catalogue is first of all meant for
+    clients to find services what they are looking for. Secondly it aims to remind public sector who is it working for.
+    </p>
+    <p>
+        Service catalogue is filled in by each authority. Every service owner is responsible for having up to date service
+        information in catalogue. Centrally is service management and describing coordinated in by Information Society Services
+        Development Department in Ministry of Economic Affairs and Communications.
+    </p>
+    <p>
+        In total there are about 40 institutions, 11 ministries using service.
+        Project materials are available in <a href="https://github.com/MKM-ITAO/riigiteenused" target="_blank">Github</a> (Estonian).
+    </p>
+    <p>
+        Also statistics about public services is collected via service catalogue. All data is publicly available via
+        <a href="https://www.riigiteenused.ee/api/et/all" target="_blank">API</a>.
+    </p>
+    <p>
+        For because information is publicly available everybody could use it make
+        <a href="https://ristohinno.shinyapps.io/Riigiteenused_dashboard/" target="_blank">dashboards</a> for example.
+
+    </p>
+        Scroll down to see view from dashboard.
+
+</div>
+
+<div class="bgimg-2">
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Simple service search for clients</p>
+    </div>
+</div>
+
+<div class="bgimg-3">
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>For more information write: riigiteenused@mkm.ee</p>
+    </div>
+</div>
+
+<div class="bgimg-1">
+</div>
+
+
+</body>
+</html>
